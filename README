@@ -1,0 +1,26 @@
+Installation
+------------
+
+For a regular linux installation, do
+
+    make
+    sudo make install
+
+For other platforms, you'll want to manually set the HOSTOS
+and path PREFIX. For example, to target windows with MinGW:
+
+    export PREFIX=/usr/x86_64-w64-mingw32
+    export HOSTOS=windows
+    make HOSTOS=${HOSTOS}
+    sudo make install HOSTOS=${HOSTOS} PREFIX=${PREFIX}
+
+and to target psp with pspdev+pspsdk, you'll want to do
+
+    export PREFIX=`psp-config --psp-prefix`
+    export HOSTOS=psp
+    make HOSTOS=${HOSTOS}
+    make install HOSTOS=${HOSTOS} PREFIX=${PREFIX}
+
+In the case of windows, the CPU variable can be used to
+select a MinGW toolchain. For example, if you specify i686,
+the i686-w64-mingw32 toolchain will be used.
